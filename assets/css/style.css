@@ -1,0 +1,470 @@
+/*
+* --> Normalize CSS
+*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+/* 
+* --> Fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* 
+* --> Globals
+*/
+:root {
+	--text-color: #fff;
+	--bg-tab: rgb(13, 67, 99);
+	--bg-body: linear-gradient(
+		110deg,
+		rgba(0, 0, 0, 1) 5%,
+		rgb(5, 71, 78) 35%,
+		rgba(16, 37, 60, 1) 70%,
+		rgb(54, 70, 80) 100%
+	);
+	--border-default: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+* {
+	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ol,
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	min-height: 100vh;
+	background: var(--bg-body);
+	background-repeat: no-repeat;
+	background-size: 400% 400%;
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	animation: gradient 10s ease infinite alternate;
+}
+
+.container {
+	padding: 1rem;
+	margin: 1rem;
+	border: var(--border-default);
+	border-radius: 1rem;
+	-moz-transition: all 350ms;
+	-webkit-transition: all 350ms;
+	transition: all 350ms;
+}
+
+.container:hover {
+	border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+/* 
+* --> Header
+*/
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.header__photo {
+	width: 230px;
+	height: 230px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 1rem;
+}
+
+.header__photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.header__info h1 {
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: center;
+	margin: 0;
+	padding: 1rem;
+}
+
+.header__info ul {
+	padding: 1rem;
+	font-size: 0.8rem;
+}
+
+.header__info ul li {
+	padding: 0.3rem 0;
+}
+
+.li--icon:before {
+	color: var(--text-color);
+	padding-right: 0.5rem;
+}
+
+.mgc_more_1_fill:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 3rem;
+	color: var(--text-color);
+}
+/* 
+*	--> Acordeon
+*/
+.tab {
+	border-radius: 1rem;
+	background-color: transparent;
+	margin: 1rem;
+	color: var(--text-color);
+	overflow: hidden;
+	border: var(--border-default);
+	-moz-transition: all 350ms;
+	-webkit-transition: all 350ms;
+	transition: all 350ms;
+}
+
+.tab input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.tab label {
+	position: relative;
+	display: block;
+	padding: 1rem 2rem;
+	font-size: 1.3rem;
+	font-weight: 700;
+	cursor: pointer;
+	-moz-transition: all 350ms;
+	-webkit-transition: all 350ms;
+	transition: all 350ms;
+}
+
+.tab label:hover {
+	background-color: var(--bg-tab);
+}
+
+.tab:hover {
+	border-color: rgba(255, 255, 255, 0.8);
+	transform: scale(1.02);
+}
+
+.tab__content {
+	max-height: 0;
+	margin-top: -1px;
+	overflow: hidden;
+	background: var(--bg-tab);
+	-moz-transition: all 350ms;
+	-webkit-transition: all 350ms;
+	transition: all 350ms;
+}
+
+.tab__content--item {
+	margin: 1rem 2rem;
+}
+
+/* :checked */
+.tab input:checked ~ .tab__content {
+	max-height: max-content;
+}
+
+.tab input:checked + label {
+	background: var(--bg-tab);
+}
+
+/* Icon */
+.tab label::after {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	padding: 1rem 2rem;
+	text-align: center;
+	-moz-transition: all 350ms;
+	-webkit-transition: all 350ms;
+	transition: all 350ms;
+}
+
+.tab input[type='checkbox'] + label::after {
+	content: '+';
+}
+
+.tab input[type='radio'] + label::after {
+	content: '\25BC';
+}
+
+.tab input[type='checkbox']:checked + label::after {
+	transform: rotate(315deg);
+}
+
+.tab input[type='radio']:checked + label::after {
+	transform: rotateX(180deg);
+}
+
+/* 
+*	--> Objective
+*/
+.objective p {
+	text-align: justify;
+	margin: 0 0 0.3rem 0;
+}
+
+/* 
+*	--> Skills
+*/
+.skills {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.skill__content {
+	text-align: center;
+}
+
+.skill__content h3 {
+	margin: 0 0 1rem 0;
+}
+
+.skill__content--img {
+	width: 60px;
+	height: 60px;
+	padding: 10px;
+}
+
+.skill__content--p {
+	font-size: 0.8rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	text-align: start;
+}
+
+.skill__content--p p {
+	margin: 0;
+}
+
+/* 
+*	--> Languages
+*/
+.languages {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+.languages p {
+	margin: 0 0 0.3rem 0;
+	font-weight: 600;
+}
+
+/* 
+*	--> Education
+*/
+.education h2,
+h3,
+p {
+	margin: 0 0 0.3rem 0;
+}
+
+.education h2 {
+	font-size: 1.3rem;
+}
+
+.education--dio {
+	text-align: center;
+}
+
+.education--img {
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+}
+
+.education li {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-bottom: 1.5rem;
+}
+
+/* 
+*	--> Portfolio
+*/
+.portfolio li {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-bottom: 1.5rem;
+}
+
+.portfolio h3 {
+	margin: 0 0 0.5rem 0;
+}
+
+.portfolio p {
+	text-align: justify;
+	padding-top: 0.5rem;
+}
+
+.portfolio a {
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.1rem;
+	font-weight: 600;
+	padding-top: 0.5rem;
+}
+
+.portfolio a:hover {
+	transform: scale(1.01);
+}
+/* 
+*	--> Experience
+*/
+.experience h3,
+h4,
+p {
+	margin: 0 0 0.3rem 0;
+}
+
+.experience p {
+	text-align: justify;
+}
+
+.experience li {
+	margin-bottom: 1.5rem;
+}
+
+/*
+*	--> Media queries
+*/
+@media screen and (min-width: 768px) {
+	.container {
+		width: 95vw;
+		max-width: 1000px;
+		margin: 1rem auto;
+	}
+
+	/* 
+	* --> Header
+	*/
+	.header {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.header__photo {
+		width: 300px;
+		height: 300px;
+		margin: 2rem;
+	}
+
+	.header__info {
+		margin: 2rem;
+	}
+
+	.header__info ul {
+		font-size: 1rem;
+	}
+
+	.header__info h1 {
+		font-size: 2rem;
+		text-align: start;
+		width: 250px;
+	}
+
+	/* 
+	*	--> Acordeon
+	*/
+	.tab {
+		margin: 2rem;
+	}
+
+	.tab label {
+		font-size: 1.8rem;
+	}
+
+	/* 
+	*	--> Skills
+	*/
+	.skills {
+		flex-direction: row;
+	}
+
+	.skill__content {
+		width: 50%;
+	}
+
+	.skill__content--p {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	/* 
+	*	--> Education
+	*/
+	.education h2 {
+		font-size: 1.5rem;
+	}
+
+	/* 
+	*	--> Portfolio
+	*/
+	.portfolio li {
+		margin-bottom: 2.5rem;
+	}
+
+	/* 
+	*	--> Experience
+	*/
+	.experience li {
+		margin-bottom: 2.5rem;
+	}
+}
+
+/*
+*	--> Animations
+*/
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*
+*	--> Custom Scroll
+*/
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(16, 37, 60);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(5, 71, 78);
+}
