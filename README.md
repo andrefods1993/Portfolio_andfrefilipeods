@@ -1,5 +1,7 @@
 <h1 align="center">Portfólio</h1>
 
+![image](https://github.com/andrefods1993/Portfolio_andfrefilipeods/assets/132412680/4fe35abd-f211-4fdd-8159-b4a4a7899ee4)
+
 ## 📎 Sumário
 
 - [✨ Features](#features)
